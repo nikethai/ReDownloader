@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react";
-import { Button, Col, Dropdown, Input, Menu, Modal, Row } from "antd";
+import { Button, Dropdown, Input, Menu, Modal } from "antd";
 import { faShippingFast } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ITopMenuProps } from "@/interface/index";
@@ -83,15 +83,15 @@ const TopMenu: FC<ITopMenuProps> = ({ isShowLogo }: ITopMenuProps) => {
   );
   return (
     <>
-      <Row align="middle">
+      <div className="flex items-center ">
         {isShowLogo ? (
-          <Col span={1.75}>
+          <div >
             <div className="element">{iconFast}</div>
-          </Col>
+          </div>
         ) : (
           <></>
         )}
-        <Col span={4}>
+        <div>
           <div className="three-button spacial-item">
             <Button
               className="centralize-item"
@@ -140,8 +140,8 @@ const TopMenu: FC<ITopMenuProps> = ({ isShowLogo }: ITopMenuProps) => {
             />
             {AddModal}
           </div>
-        </Col>
-        <Col span={15} flex="auto">
+        </div>
+        <div className="w-3/4">
           <Input
             placeholder="Search"
             allowClear
@@ -149,8 +149,8 @@ const TopMenu: FC<ITopMenuProps> = ({ isShowLogo }: ITopMenuProps) => {
               background: "#f9f6f7",
             }}
           />
-        </Col>
-        <Col span={2} style={{ display: "flex", justifyContent: "center" }}>
+        </div>
+        <div className="flex justify-center ml-3">
           <Dropdown overlay={userSetting} trigger={["click"]}>
             <Button
               className="centralize-item"
@@ -164,8 +164,8 @@ const TopMenu: FC<ITopMenuProps> = ({ isShowLogo }: ITopMenuProps) => {
               }}
             />
           </Dropdown>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </>
   );
 };

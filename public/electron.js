@@ -4,8 +4,8 @@ const path = require("path");
 let windo;
 const createWindow = () => {
   const windo = new BrowserWindow({
-    width: 1350,
-    height: 760,
+    width: 1000,
+    height: 600,
   });
   const startUrl = process.env.ELECTRON_START_URL || url.format({
     pathname: path.join(__dirname, '/../build/index.html'),
@@ -14,7 +14,7 @@ const createWindow = () => {
   });
   windo.loadURL(startUrl);
 
-  windo.setResizable(false);
+  // windo.setResizable(false);
   windo.center();
   windo.fullScreenable = true;
 };

@@ -1,19 +1,11 @@
 import React, { useState } from "react";
-import {
-  Layout,
-  Menu,
-  Table,
-  Row,
-  Progress,
-  Modal,
-  Drawer,
-} from "antd";
+import { Layout, Menu, Table, Row, Progress, Modal, Drawer } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShippingFast,
   faDownload,
   faCheckCircle,
-  faTrashAlt
+  faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { useBreakpoints } from "./component/util/BreakPoint";
 
@@ -22,7 +14,6 @@ import TopMenu from "./component/TopMenu/TopMenu";
 const { Header, Sider, Content } = Layout;
 
 import "./App.css";
-import "antd/dist/antd.css";
 
 const iconFast = (
   <FontAwesomeIcon icon={faShippingFast} color="#77acf1" size="2x" />
@@ -96,39 +87,15 @@ function App() {
   };
   const hasSelected = selectedRowKeys.length > 0;
 
-
   return (
     <div>
       <Layout className="app">
         <Header>
-          {isLaptopMid ? (
-            <Row
-              align="middle"
-              wrap={false}
-              justify="center"
-              className="menu-sm"
-            >
-              <div className="element big" onClick={showDrawer}>
-                {iconFast}
-              </div>
-            </Row>
-          ) : (
-           <TopMenu isShowLogo={true}/>
-         )}
-          <Drawer
-            title="Util Button"
-            placement="top"
-            height={150}
-            closable={true}
-            onClose={onClose}
-            visible={visible}
-          >
-            <TopMenu />
-          </Drawer>
+          <TopMenu isShowLogo={true}/>
         </Header>
         <Layout>
           <Sider>
-            <Menu mode="vertical" defaultSelectedKeys={["1"]}>
+            <Menu mode="vertical" defaultSelectedKeys={["1"]} inlineCollapsed={true}>
               <Menu.Item key="1" icon={iconDown}>
                 Download
               </Menu.Item>
@@ -146,7 +113,7 @@ function App() {
             </span>
             <div>
               <Table
-                className="table"
+                className="table w-full h-screen"
                 pagination={{ position: ["bottomCenter"] }}
                 rowSelection={rowSelection}
                 columns={columns}
